@@ -5,7 +5,9 @@
     {{- 'theme.scss.css' | asset_url | stylesheet_tag -}}
   </head>
   <body>
-    {%- section 'header' -%}
+    <header>
+      {%- section 'header' -%}
+    </header>
     {{ content_for_layout }}
     {{- 'theme.js' | asset_url | script_tag -}}
   </body>

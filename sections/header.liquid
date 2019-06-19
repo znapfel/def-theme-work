@@ -1,8 +1,9 @@
+
+<!-- Store Name / Logo -->
+
+<h1 class="logo"><a href="/">{{ shop.name | escape }}</a></h1>
+<input type="checkbox" id="nav-toggle" class="header--nav-toggle">
 <nav>
-
-    <!-- Store Name / Logo -->
-    <a class="logo" href="/">{{ shop.name | escape }}</a>
-
     <!-- Main Nav Links -->
     <ul class="header--main-menu-navigation">
         {%- for link in linklists.main-menu.links -%}
@@ -11,6 +12,7 @@
         </li>
         {%- endfor -%}
     </ul>
+    
 
     <!-- Search and Login Links (if accounts are enabled)-->
     <ul class="header--accounts">
@@ -35,3 +37,6 @@
     </ul>
 
 </nav>
+<label for="nav-toggle" class="header--nav-toggle-label">
+    <span></span>
+</label>

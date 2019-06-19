@@ -1,54 +1,171 @@
 
+// Variables 
+$background-color: gray;
+
+body {
+    margin: 0;
+}
+
 // Mobile Styles
 html {
     color: black;
+    
 }
-nav {
-    display: grid;
-    justify-items: center;
+
+header {
+    background: $background-color;
     text-align: center;
-    border-bottom: 1px solid lightgray;
+    //Make position and z-index change based on theme settings
+    position: fixed;
+    z-index: 999;
+    width: 100%;
 }
 
-nav > * {
-    font-size: 1.3em;
-    min-height: 50px;
-    padding: 1rem 4rem;
+.header--nav-toggle {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
 }
-nav ul {
+
+.header--nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-
+    align-items: center;
 }
-nav li {
+
+.header--nav-toggle-label span,
+.header--nav-toggle-label span::before,
+.header--nav-toggle-label span::after {
+    display:block;
+    background: black;
+    height: 2px;
+    width: 2em;
+    border-radius: 5px;
+    position: relative;    
+}
+
+.header--nav-toggle-label span::before,
+.header--nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.header--nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.header--nav-toggle-label span::after {
+    top: 7px;
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: $background-color;
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
     list-style: none;
-    padding: 15px 10px;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
 }
 
 nav a {
+    // make color variable;
     color: black;
     text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
 }
 
-.logo {
-    text-decoration: none;
+nav a:hover {
+    // make color variable;
+    color: white;
 }
 
-.header--accounts{
-    align-self: flex-end;
+.header--nav-toggle:checked ~ nav{
+   transform: scale(1, 1);
 }
 
+.header--nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms
+}
 
-// Desktop Styles
-@media (min-width: 60rem) {
+@media screen and (min-width: 60rem) {
+    .header--nav-toggle-label {
+        display: none;
+    }
+
+    header .shopify-section{
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+
+    .logo {
+        grid-column: 2 / 3;
+    }
+
     nav {
-        grid-template-columns: 1fr auto auto;
-        justify-items: start;
+        grid-column: 3 / 4;
+        position: relative;
+        text-align: left;
+        transition: none;
+        transform: scale(1,1);
+        background: none;
+        top: initial;
+        left: initial;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
     }
 
     nav ul {
         display: flex;
-        flex-direction: row;   
+    }
+
+    nav li {
+        margin-left: 1.5em;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        opacity: 1;
+        position: relative;
+    }
+
+    nav a::before {
+        content: '';
+        position: absolute;
+        bottom: -0.5em;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 5px;
+        // make color variable;
+        background: white;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+
+    nav a:hover::before {
+        transform: scale(1, 1);
     }
 }
