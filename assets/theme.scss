@@ -1,0 +1,54 @@
+
+// Mobile Styles
+html {
+    color: black;
+}
+nav {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+}
+
+nav > * {
+    font-size: 1.3em;
+    min-height: 50px;
+    padding: 1rem 4rem;
+}
+nav ul {
+    display: flex;
+    flex-direction: column;
+
+}
+nav li {
+    list-style: none;
+    padding: 15px 10px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.header--accounts{
+    align-self: flex-end;
+}
+
+
+// Desktop Styles
+@media (min-width: 60rem) {
+    nav {
+        grid-template-columns: 1fr auto auto;
+        justify-items: start;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;   
+    }
+}
