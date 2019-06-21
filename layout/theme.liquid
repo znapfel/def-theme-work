@@ -9,9 +9,7 @@
       {%- section 'header' -%}
     </header>
     {{ content_for_layout }}
-    <footer>
-      {%- section 'footer' -%}
-    </footer>
+    {%- section 'footer' -%}
     
     {{- 'jquery-3.4.1.min.js' | asset_url | script_tag }}
     {{- 'theme.js' | asset_url | script_tag -}}
