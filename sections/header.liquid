@@ -20,9 +20,27 @@
     {%- unless primary_link_list == blank -%}
     <!-- Main Nav Links -->
     <ul class="header--main-menu-navigation">
-        {%- for link in primary_link_list.links -%}
-        <li class="header--main-menu-link">
-            <a href="{{ link.url }}">{{ link.title | escape }}</a>
+        {%- for link in primary_link_list.links -%} 
+            {%- assign child_link_list_handle = link.title | handle -%}
+            {%- assign child_link_list = linklists[child_link_list_handle] -%}
+
+            {%- if child_link_list and child_link_list.links.size > 0 -%}
+                {%- assign has_child_link_list = true -%}
+
+            {%- else -%}
+
+                {%- assign has_child_link_list = false -%}
+            
+            {%- endif -%}
+        <li class="header--main-menu-link {% if link.active %} active {% endif %} {% if has_child_link_list %} header--dropdown {% endif %}">
+            <a href="{{ link.url }}" class="nav-link {% if has_child_link_list %}dropdown-toggle{% endif %}">{{ link.title | escape }}</a>
+            {% if has_child_link_list %}
+                <div class="header--dropdown-menu" aria-labelledby="{{ child_link_list_handle }}-dropdown-toggle">
+                    {%- for child_link in child_link_list.links -%}
+                        <a href="{{ child_link.url }}" class="header--dropdown-item">{{ child_link.title | escape }}</a>
+                    {%- endfor -%}
+                </div>
+            {% endif %}
         </li>
         {%- endfor -%}
     </ul>

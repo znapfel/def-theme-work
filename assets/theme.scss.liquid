@@ -27,7 +27,7 @@ header {
     left: -9999px;
 }
 
-.header--nav-toggle-label {
+.header--nav-toggle-label{
     position: absolute;
     top: 0;
     left: 0;
@@ -36,6 +36,7 @@ header {
     display: flex;
     align-items: center;
 }
+
 
 .header--nav-toggle-label span,
 .header--nav-toggle-label span::before,
@@ -98,6 +99,32 @@ nav a {
 nav a:hover {
     // make color variable;
     color: white;
+}
+
+.header--dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    transform: scale(1, 1);
+    transform-origin: top left;
+    transition: transform 250ms ease-in;
+}
+
+.header--dropdown-hidden {
+    transform: scale(1, 0);
+    transform-origin: top left;
+    transition: transform 250ms ease-in;
+}
+
+.dropdown-toggle::after {
+    justify-content: flex-end;
+    content: "+";
+}
+
+.header--dropdown-item {
+    padding: 1em;
+    margin-left: 0.5em;
+    opacity: 1;
+    transform: opacity 250ms ease-in;
 }
 
 .header--nav-toggle:checked ~ nav{
@@ -168,4 +195,15 @@ nav a:hover {
     nav a:hover::before {
         transform: scale(1, 1);
     }
+
+    .header--dropdown-menu {
+        position: absolute;
+        background-color: $background-color;
+        padding: 1em;
+        margin-left: 0;
+    }
+    
 }
+
+
+
