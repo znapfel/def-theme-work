@@ -2,11 +2,13 @@
 // Variables 
 $background-color: gray;
 
+// Base Styles
 body {
     margin: 0;
+    font-size: 16px;
 }
 
-// Mobile Styles
+// Mobile Styles First
 html {
     color: black;
     
@@ -21,6 +23,7 @@ header {
     width: 100%;
 }
 
+// Mobile Header Styles
 .header--nav-toggle {
     position: absolute;
     top: -9999px;
@@ -136,7 +139,13 @@ nav a:hover {
     transition: opacity 250ms ease-in-out 250ms
 }
 
+
+
+
+// Desktop Styles
 @media screen and (min-width: 60rem) {
+    
+    // Header Desktop Styles
     .header--nav-toggle-label {
         display: none;
     }
