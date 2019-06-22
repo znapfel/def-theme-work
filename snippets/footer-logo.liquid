@@ -1,0 +1,8 @@
+{%- comment -%}
+TODO - Should this be in the theme settings schema vs footer?
+{%- endcomment -%}
+
+<div class="footer--logo" {{ block.shopify_attributes}}>
+    {%- assign logo = block.settings.logo -%}
+    <img class="footer--logo-img" src="{{ logo.src | img_url }}" alt="{{ logo.alt }}">
+</div>

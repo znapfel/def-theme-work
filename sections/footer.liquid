@@ -3,6 +3,17 @@
     "name": "Footer",
     "blocks": [
     {
+        "type": "image_picker",
+        "name": "Logo",
+        "settings": [
+          {
+            "id": "logo",
+            "type": "image_picker",
+            "label": "Logo image"
+          }
+        ]
+      },
+    {
         "type": "link_list",
         "name": "Navigation Menu",
         "settings": [
@@ -24,6 +35,11 @@
 <footer>
     {%- for block in section.blocks -%}
         {%- case block.type -%}
+        {%- comment -%}
+            TODO - Should this be in the theme settings schema vs footer?
+        {%- endcomment -%}
+            {%- when 'image_picker' -%}
+                {%- include 'footer-logo' -%}
             {%- when 'link_list' -%}
                 {%- include 'footer-block-link-list' -%}
             {%- when 'payment_icons' -%}
