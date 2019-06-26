@@ -3,6 +3,10 @@
   <head>
     {{ content_for_header }}
     {{- 'theme.scss.css' | asset_url | stylesheet_tag -}}
+    
+    
+  
+    
   </head>
   <body>
     <header>
@@ -12,6 +16,8 @@
     {%- section 'footer' -%}
     {{- 'jquery-3.4.1.min.js' | asset_url | script_tag }}
     {{- 'theme.js' | asset_url | script_tag -}}
+    {{- 'slick.min.js' | asset_url | script_tag -}}
+
     
   </body>
 </html>

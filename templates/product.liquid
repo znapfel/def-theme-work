@@ -1,21 +1,41 @@
 <main>
-    <div id="column-left">
-        {%- if product.images.size > 0 -%}
-            <img src="{{ product | img_url: '480x480', scale: 2, crop: 'center' }}"/>
-
-            {%- if product.images.size > 0 -%} 
-            <ul id="thumbnails">
-                {%- for image in product.images -%}
-                    <li>
-                        <a href="{{ image | img_url: 'master' }}" target="_blank">
-                            <img src="{{ image | img_url: '240x240', scale: 2, crop: 'center'}}" alt="{{ product.title | escape }}">
-                        </a>
-                    </li>
+<section class="primary-images">
+    {% include 'product-image-slider' %}
+</section>
+<section class="product--product-details">
+    {%- comment -%}
+    Display product name, vendor and price(s).
+    If there's more than one variant display the range of prices
+    {%- endcomment -%}
+    <h1 class="product--product-title">{{ product.title | escape }}</h1>
+    <h5 class="product--product-vendor">{{ product.vendor | escape }}</h5>
+    <h3>{%- if product.price_varies %}{{ product.price_min | money }} - {{ product.price_max | money }}{% else %}{{ product.price | money }}{%- endif -%}</h3>
+    {{ product.description }}
+    {%- comment -%}
+    Add To Cart Form.
+    If there's more than one variant, add a drop down with options for each variant
+    {%- endcomment -%}
+    <form action="/cart/add" method="post" role="form">
+        {%- if product.variants.size > 1 -%}
+            <label for="product-select">Select your {{ product.title | downcase }}</label>
+            <select id="product-select" name="id">
+                {%- for variant in product.variants -%}
+                    {%- comment -%}
+                    Set the selected option in the drop down to the first available variant or the currently selected one.
+                    {%- endcomment -%}
+                    <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}
+                    value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
                 {%- endfor -%}
-            </ul>
-            {%- endif -%}
+            </select>
         {%- else -%}
-            {{ 'image' | placeholder_svg_tag }}
-        {%- endif -%}
-    </div>
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}"/>
+        {% endif %}
+
+        {%- comment -%}
+        Add to cart button. Disabled if product is out of stock.
+        {%- endcomment -%}
+        <button type="submit" {% unless product.available %} disabled="disabled" {% endunless %}>Add to cart</button>
+
+    </form>
+</section>
 </main>
