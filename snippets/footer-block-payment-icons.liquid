@@ -1,0 +1,7 @@
+<div class="footer--payment-icons" {{ block.shopify_attributes }}>
+    {%- unless shop.enabled_payment_types == empty -%}
+        {% for type in shop.enabled_payment_types %}
+         {{ type | payment_type_svg_tag | class: 'footer-payment-icon' }}
+        {% endfor %}
+    {%- endunless -%}
+</div>

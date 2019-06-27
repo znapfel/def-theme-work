@@ -2,25 +2,33 @@
 // Variables 
 $background-color: gray;
 
+html {
+    color: black;
+    height: 100%;
+}
+
 // Base Styles
 body {
     margin: 0;
     font-size: 16px;
+    min-height: 100%;
+    
+    
+    display: grid;
+    grid: auto;
 }
 
 // Mobile Styles First
-html {
-    color: black;
-    
-}
+
 
 header {
     background: $background-color;
     text-align: center;
     //Make position and z-index change based on theme settings
-    position: fixed;
+    position: relative;
     z-index: 999;
     width: 100%;
+    margin-bottom: auto;
 }
 
 // Mobile Header Styles
@@ -66,7 +74,7 @@ header {
     top: 7px;
 }
 
-nav {
+header nav {
     position: absolute;
     text-align: left;
     top: 100%;
@@ -78,18 +86,18 @@ nav {
     transition: transform 400ms ease-in;
 }
 
-nav ul {
+header nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-nav li {
+header nav li {
     margin-bottom: 1em;
     margin-left: 1em;
 }
 
-nav a {
+header nav a {
     // make color variable;
     color: black;
     text-decoration: none;
@@ -99,7 +107,7 @@ nav a {
     transition: opacity 150ms ease-in-out;
 }
 
-nav a:hover {
+header nav a:hover {
     // make color variable;
     color: white;
 }
@@ -139,7 +147,48 @@ nav a:hover {
     transition: opacity 250ms ease-in-out 250ms
 }
 
+// Footer Styles
 
+#shopify-section-footer {
+    margin-top: auto;
+}
+
+footer {
+    background-color: $background-color;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.footer--link-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer--link-list h3, .footer--link-list nav {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.footer--link-list h3 {
+    font-size: 1.2rem;
+}
+
+footer nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer--navigation {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer--navigation a {
+    margin: 0.5em 0;
+}
 
 
 // Desktop Styles
@@ -159,7 +208,7 @@ nav a:hover {
         grid-column: 2 / 3;
     }
 
-    nav {
+    header nav {
         grid-column: 3 / 4;
         position: relative;
         text-align: left;
@@ -173,21 +222,21 @@ nav a:hover {
         align-items: center;
     }
 
-    nav ul {
+    header nav ul {
         display: flex;
     }
 
-    nav li {
+    header nav li {
         margin-left: 1.5em;
         margin-bottom: 0;
     }
 
-    nav a {
+    header nav a {
         opacity: 1;
         position: relative;
     }
 
-    nav a::before {
+    header nav a::before {
         content: '';
         position: absolute;
         bottom: -0.5em;
@@ -201,7 +250,7 @@ nav a:hover {
         transition: transform ease-in-out 250ms;
     }
 
-    nav a:hover::before {
+    header nav a:hover::before {
         transform: scale(1, 1);
     }
 
