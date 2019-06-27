@@ -3,6 +3,9 @@
 // Variables 
 $background-color: gray;
 
+// Breakpoint Variables
+$break-at: 60rem;
+
 html {
     color: black;
     height: 100%;
@@ -189,9 +192,84 @@ footer nav a {
     margin: 0.5em 0;
 }
 
+// Product Page Layout
+
+.product-page {
+    padding: 2em 0;
+    display: grid;
+    
+    grid-template-areas: 
+        ". images images ."
+        ". details details ."
+        ". details details ."
+        ". . . ."
+        ". rec rec .";
+        
+    grid-template-columns: 2em minmax(600px, 1.5fr) 1fr 2em;
+}
+
+.primary-images {
+  grid-area: images;
+  width: 100%;
+}
+
+.product--product-details{
+  grid-area: details;
+}
+
+.slick-prev {
+  position: absolute;
+  top: 50%;
+}
+
+.slick-next {
+  position: absolute;
+  top: 50%;
+  left: 92%;
+}
+
+.slick-dots button {
+  background-color: transparent;
+  border: none;
+}
+
+.product--image-thumbnails .slick-track {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product--thumbnail-wrapper {
+ width: 20%; 
+ margin: 5px;
+}
+
+.product--thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.product--product-details form {
+  display: flex;
+  flex-direction:column;
+  width: 100%;
+}
+
+.product--product-details form label {
+  margin: 10px 0px;
+}
+
+.product--product-details form select {
+  padding: 15px 9px;
+}
+
+.product--product-details form button {
+  margin: 20px 0;
+  width: 100%;
+  padding: 15px 9px;
+}
 
 // Desktop Styles
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: $break-at) {
     
     // Header Desktop Styles
     .header--nav-toggle-label {
@@ -260,5 +338,37 @@ footer nav a {
         padding: 1em;
         margin-left: 0;
     }
+
+    // Product Page Layout Desktop
+    .product-page {
+  grid-template-areas: 
+    ". images . details ."
+    ". .      . details ."
+    ". .      . details ."
+    ". .      .    .    ."
+    ". rec    rec  rec  .";
+    
+    grid-template-columns: 2em 600px 2em 1fr 2em;
+  }
+  
+  .product--product-details form {
+  display: flex;
+  flex-direction:column;
+  width: 50%;
+}
+
+.product--product-details form label {
+  margin: 10px 0px;
+}
+
+.product--product-details form select {
+  padding: 15px 9px;
+}
+
+.product--product-details form button {
+  margin: 20px 0;
+  width: 100%;
+  padding: 15px 9px;
+}
     
 }

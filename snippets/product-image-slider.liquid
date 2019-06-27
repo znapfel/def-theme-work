@@ -1,22 +1,19 @@
-<style>
-        .slick-next:before, .slick-prev:before{
-          color:#000;
-        }
-        .slick-next{
-          right:0px;
-          z-index: 100;
-        }
-        .slick-prev{
-          left:0px;
-          z-index:100;
-        }
-      </style>
       <div class="slick-slider">
           {% for image in product.images %}
             <div>
-              <img class="mySlides" src="{{ image | img_url: 'master' }}" style="width:100%">
+              <img class="product--image-slider" src="{{ image | img_url: '640x640', crop: 'center' }}">
             </div>
           {% endfor %}
-        </div>
+      </div>
+      <div class="product--image-thumbnails">
+        {%- for image in product.images -%}
+        {%- comment -%}
+        Attach product variant ID's to thumbnails to allow for variant selection via thumbnail
+        {%- endcomment -%}
+          <div class="product--thumbnail-wrapper" >            
+              <img class="img-thumbnail" src="{{ image | product_img_url: '240x240', scale: 2, crop: 'center' }}" alt="{{ product.title | escape }}" />            
+          </div>
+        {%- endfor -%}
+      </div>
       
     

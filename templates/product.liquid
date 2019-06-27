@@ -1,4 +1,4 @@
-<main>
+<main class="product-page">
 <section class="primary-images">
     {% include 'product-image-slider' %}
 </section>
@@ -34,8 +34,8 @@
         {%- comment -%}
         Add to cart button. Disabled if product is out of stock.
         {%- endcomment -%}
-        <button type="submit" {% unless product.available %} disabled="disabled" {% endunless %}>Add to cart</button>
-
+        <button type="submit" {% unless product.available %} disabled="disabled"{% endunless %}>Add to cart</button>
+    
     </form>
 </section>
 </main>
