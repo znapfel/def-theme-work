@@ -1,0 +1,41 @@
+{% schema %}
+{
+ "name": "Hero image",
+ "settings": [
+        {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Hero image"
+        },
+        {
+            "id": "title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "id": "label",
+            "type": "text",
+            "label": "Button text"
+        },
+        {
+            "id": "href",
+            "type": "url",
+            "label": "Button link"
+        }
+    ],
+ "presets": [
+        {
+            "name": "Hero image",
+            "category": "Images"
+        }
+    ]
+}
+{% endschema %}
+
+<section class="index--hero-wrapper">
+    <a href="{{ section.settings.href }}"><img src="{{section.settings.image | img_url: 'master', format: 'pjpg'}}"></a> 
+    <div class="index--hero-title-wrapper">
+      <h2>{{ section.settings.title }}</h2>
+      <button>{{ section.settings.label | escape }}</button>
+  </div>
+</section>
