@@ -325,7 +325,7 @@ left: 75%;
     align-items: center;
 }
 
-.index--featured-product {
+.product-snippet {
     text-align: center;
 }
 
@@ -354,6 +354,22 @@ left: 75%;
 .collection--card-overlay h4::after {
     padding: 0 10px;
     content: ">";
+}
+
+// Collection Pages Mobile
+.collection {
+    //TODO Make display grid and define areas
+}
+.collection h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.collection--products-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 // Desktop Styles
 @media screen and (min-width: $break-at) {
@@ -473,7 +489,7 @@ left: 75%;
         justify-content: center;
     }
 
-    .index--featured-product, .collection-item {
+    .product-snippet, .collection-item {
         margin: 20px;
     }
 
@@ -484,4 +500,12 @@ left: 75%;
         flex-direction: row;
         align-items: center;   
     }
+
+    .collection--products-wrapper {
+        flex-flow: row wrap;
+        justify-content: center;
+        
+    }
+
+
 }

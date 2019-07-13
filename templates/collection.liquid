@@ -1,0 +1,23 @@
+<main class="collection">
+    <h1>{{ collection.title | escape }}</h1>
+
+    {%- comment -%}
+    TODO Add controls for sorting and filtering collections here. Grid areas etc
+    {%- endcomment -%}
+
+    {% paginate collection.products by 12 %}
+    <section class="collection--products">
+        <article class="collection--products-wrapper"> 
+        {% for product in collection.products %}
+            {%- include 'product' -%}
+        {% endfor %}
+        </article>
+
+        <nav class="collection-pagination">
+            {% if paginate.pages > 1 %}
+                {{ paginate | default_pagination }}
+            {% endif %}
+        </nav>
+    </section>
+    {% endpaginate %}
+</main>
