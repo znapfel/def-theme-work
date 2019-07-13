@@ -1,0 +1,42 @@
+{% schema %}
+{
+    "name": "Featured collections",
+    "max_blocks": 4,
+    "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "Section title"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "collection",
+            "name": "Collection",
+            "settings": [
+                {
+                    "id": "collection",
+                    "type": "collection",
+                    "label": "Collection"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Collections",
+            "category": "Features"
+        }
+    ]
+}
+{% endschema %}
+<div class="index--featured-collections">
+    <h2>{{ section.settings.title }} </h2>
+    <div class="index--featured-collections-wrapper">
+    {%- for block in section.blocks -%} 
+        {%- if block.type == 'collection' -%}
+            {% include 'collection' with collections[block.settings.collection] %}        
+        {%- endif -%}        
+    {%- endfor -%}
+    </div>
+</div>

@@ -3,11 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{ content_for_header }}
-    {{- 'theme.scss.css' | asset_url | stylesheet_tag -}}
-    
-    
-  
-    
+    {{- 'theme.scss.css' | asset_url | stylesheet_tag -}} 
   </head>
   <body>
     <header>
@@ -17,8 +13,6 @@
     {%- section 'footer' -%}
     {{- 'jquery-3.4.1.min.js' | asset_url | script_tag }}
     {{- 'theme.js' | asset_url | script_tag -}}
-    {{- 'slick.min.js' | asset_url | script_tag -}}
-
-    
+    {{- 'slick.min.js' | asset_url | script_tag -}}   
   </body>
 </html>

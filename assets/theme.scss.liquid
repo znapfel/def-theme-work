@@ -15,12 +15,12 @@ html {
 body {
     margin: 0;
     font-size: 16px;
-    min-height: 100%;
-    
-    
     display: grid;
 }
 
+h1, h2, h3, h4, h5, h6, h6 {
+    margin: 0;
+}
 // Mobile Styles First
 
 
@@ -31,7 +31,7 @@ header {
     position: relative;
     z-index: 999;
     width: 100%;
-    margin-bottom: auto;
+    padding-bottom: 3rem;
 }
 
 // Mobile Header Styles
@@ -290,6 +290,71 @@ footer nav a {
   padding: 15px 9px;
 }
 
+// Index Page Styles 
+.index--hero-wrapper {
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+
+.index--hero-wrapper a {
+width: 100%;
+
+}
+
+.index--hero-wrapper a img {
+width: 100%;
+height: 100%;
+display: block;
+}
+
+.index--hero-title-wrapper {
+position: absolute;
+top: 50%;
+left: 75%;
+}
+
+.index--featured-products h2 {
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+
+.index--featured-product-flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index--featured-product {
+    text-align: center;
+}
+
+// Featured Collections
+.index--featured-collections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index--featured-collections h2 {
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+
+.index--featured-collections-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+.collection-item {
+    text-align: center;
+}
+
+.collection--card-overlay h4::after {
+    padding: 0 10px;
+    content: ">";
+}
 // Desktop Styles
 @media screen and (min-width: $break-at) {
     
@@ -400,5 +465,23 @@ footer nav a {
     }
     .product--recommended-product {
         margin: 20px;
+    }
+
+    // Index Page Desktop Styles
+    .index--featured-product-flex-wrapper {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .index--featured-product, .collection-item {
+        margin: 20px;
+    }
+
+    // Index Featured Collection Desktop Style 
+    
+    .index--featured-collections-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;   
     }
 }

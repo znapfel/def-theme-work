@@ -1,0 +1,7 @@
+<article class="index--featured-product">
+    <a href="{{ product.url }}">
+        <img src="{{ product.featured_image | img_url: '200x200', scale: 2, crop: 'center' }}" alt="{{ product.title | escape }}">
+    <h4>{{ product.title | escape }}</h6>
+    <p>{{ product.price | money }}</p>
+    </a>
+</article>
