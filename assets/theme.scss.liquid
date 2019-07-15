@@ -36,6 +36,18 @@ form button {
     width: 100%;
     padding: 15px 9px;
 }
+
+// Classes for handling no javascript on browser {
+.js-hide {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.no-js .js-hide {
+    position: static;
+}
+
 // Mobile Styles First
 
 
@@ -220,6 +232,13 @@ footer nav a {
         ". rec rec .";
         
     grid-template-columns: 2em minmax(300px, 1.5fr) 1fr 2em;
+}
+
+.horizontal-line-break {
+    height: 1px;
+    background-color: lightgray;
+    width: 100%;
+    margin: 25px 0;
 }
 
 .primary-images {
@@ -413,13 +432,21 @@ left: 75%;
 }
 
 // Collection Page Sort Panel Mobile styles
-.collection-sort-panel {
+.collection--sort-panel {
     position: absolute;
     top: -9999px;
     left: -9999px;
 
 }
 
+.collection--sort-panel ul {
+    list-style: none;
+    margin: 0;
+}
+
+.collection--category {
+ padding: 5px 0;
+}
 
 .collection--products-list-wrapper {
     margin: 2rem;
@@ -602,8 +629,8 @@ left: 75%;
         
     }
 
-    // Collection Page Sort Panel Mobile styles
-    .collection-sort-panel {
+    // Collection Page Sort Panel Desktop styles
+    .collection--sort-panel {
         display: flex;
         position: static;
         flex-direction: column;
@@ -611,5 +638,6 @@ left: 75%;
         grid-area: sort;
     }
 
+    
 
 }
