@@ -26,15 +26,13 @@
     {% paginate collection.products by 12 %}
     <section class="collection--products">
         {%- if collection-view == 'grid' -%}
-            <article class="collection--products-wrapper"> 
-                <h1>{{ collection-view }}</h1>
+            <article class="collection--products-wrapper">
                 {% for product in collection.products %}
                     {%- include 'product' -%}
                 {% endfor %}
             </article>
         {%- else -%}
             <article class="collection--products-list-wrapper">
-                <h1>{{ collection-view }}</h1>
                 {% for product in collection.products %}
                     {%- include 'product-list' -%}
                 {% endfor %}
