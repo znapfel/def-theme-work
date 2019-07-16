@@ -3,22 +3,23 @@
 
     {%- if cart.items.size > 0 -%}
     <form action="/cart" method="post">
-        <article class="cart--cart-wrapper">
+        <section class="cart--cart-wrapper">
             {%- for item in cart.items -%}
-                
+                <article class="cart--cart-line-item">
             
-                <a href="{{ item.url}}">
-                    <img src="{{ item | img_url: '120x120', scale: 2, crop: 'center' }}" width="120" alt="{{ item.title | escape }}"/>
-                </a>
-                <div class="cart--item-details">
-                    <h6>{{ item.title | escape }}</h6>
-                    <p>{{ item.sku | escape }}</p>
-                    <a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
-                </div>
-                <div class="cart--quantity-wrapper">
-                    <input type="number" name="updates[]" value="{{ item.quantity }}" />
-                    <h6>{{ product.price | money }}</h6>
-                </div>
+                    <a href="{{ item.url}}">
+                        <img src="{{ item | img_url: '120x120', scale: 2, crop: 'center' }}" width="120" alt="{{ item.title | escape }}"/>
+                    </a>
+                    <div class="cart--item-details">
+                        <h6>{{ item.title | escape }}</h6>
+                        <p>{{ item.sku | escape }}</p>
+                        <a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+                    </div>
+                    <div class="cart--quantity-wrapper">
+                        <input type="number" name="updates[]" value="{{ item.quantity }}" />
+                        <h6>{{ item.price | money }}</h6>
+                    </div>
+                 </article>
             {%- endfor -%}
             <div class="cart--info">
                 <p><strong>{{ cart.total_price | money }}</strong></p>
@@ -28,7 +29,7 @@
                 </div>
             </div>    
 
-        </article>
+        </section>
     </form>
     {%- else -%}
         <p>Your cart is empty.</p>

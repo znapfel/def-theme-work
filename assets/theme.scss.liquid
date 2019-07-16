@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6, h6 {
 }
 
 // Basic Form Styling
-form select {
+form select, form input {
     padding: 15px 9px;
 }
 
@@ -473,6 +473,51 @@ left: 75%;
 
 .product-list-snippet h6 {
     margin-left: auto;
+}
+
+// Cart Mobile Styles
+.cart {
+    margin: 25px 2rem;
+}
+
+.cart h1 {
+    padding: 25px;
+}
+
+.cart--cart-line-item {
+    display: flex;
+    align-items: center;
+    
+    padding: 25px;
+}
+
+.cart--cart-line-item div {
+    padding: 25px;
+}
+
+.cart--item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart--quantity-wrapper {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.cart--quantity-wrapper input {
+    margin: 0 25px;
+}
+
+.cart--cart-line-item, .cart--info {
+    border-top: 1px solid lightgray;
+}
+
+.cart--info {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
 }
 // Desktop Styles
 @media screen and (min-width: $break-at) {
