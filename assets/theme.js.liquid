@@ -26,10 +26,10 @@ $(document).ready(function() {
    focusOnSelect: true
    });
 
-   // Listeners for Submit on change data field.
+   // Listeners for Submit on change data field on <select> and <input>.
    $(document).on('change', '[data-submit-on-change]', function(){
-      const $select = $(this);
-      const target = $select.attr('data-submit-on-change');
+      const $input = $(this);
+      const target = $input.attr('data-submit-on-change');
       $(target).submit();
    });
 
