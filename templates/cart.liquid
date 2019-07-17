@@ -22,7 +22,10 @@
                  </article>
             {%- endfor -%}
             <div class="cart--info">
-                <p><strong>{{ cart.total_price | money }}</strong></p>
+                <p><strong>Total: {{ cart.total_price | money }}</strong></p>
+                <div id="cart-shipping">
+                    <p><em>Shipping and taxes are calculated during checkout.</em></p>
+                </div>
                 <div>
                     <input class="js-hide"type="submit" name="update" value="Update" />
                     <input type="submit" name="checkout" value="Proceed To Checkout" />
@@ -36,3 +39,10 @@
         
     {%- endif -%}
 </main>
+
+{%- capture captured_js -%}
+    {{- captured_js -}}
+    <script type="text/javascript">
+        fetchShippingRateEstimate('#cart-shipping', {{ customer.default_address | json }} )
+    </script>
+{%- endcapture -%}
