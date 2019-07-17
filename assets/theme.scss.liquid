@@ -481,8 +481,8 @@ left: 75%;
     margin: 25px 2rem;
 }
 
-.cart h1 {
-    padding: 25px;
+.cart h1, .cart .cart--empty {
+    padding: 15px 25px;
 }
 
 .cart--cart-line-item {
@@ -525,10 +525,16 @@ left: 75%;
     align-items: center;
     flex-direction: column;
 }
+
+//@TODO style upsell area
+
 // Desktop Styles
 @media screen and (min-width: $break-at) {
     
     // Header Desktop Styles
+    header {
+        max-height: 3rem;
+    }
     .header--nav-toggle-label {
         display: none;
     }

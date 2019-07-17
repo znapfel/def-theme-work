@@ -35,10 +35,11 @@
         </section>
     </form>
     {%- else -%}
-        <p>Your cart is empty.</p>
+        <p class="cart--empty">Your cart is empty.</p>
         
     {%- endif -%}
 </main>
+{%- include 'cart-upsell' -%}
 
 {%- capture captured_js -%}
     {{- captured_js -}}
