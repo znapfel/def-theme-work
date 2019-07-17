@@ -1,0 +1,82 @@
+<main class="collection" id="collection-main">
+    <form class="collection-form" id="collection-form" method="get" action="{{ collection.url }}{%- if current_tags -%}/{{ current_tags | join: '+' }}{%- endif -%}" data-submit-load="#collection-main">
+    <h1>{{ collection.title | escape }}</h1>
+    
+    <aside class="collection--sort-panel">
+        {%- assign current_sort_by = collection.sort_by | default collection.default_sort_by -%}
+        <label for="sort_by">Sort by...</label>
+        <select name="sort_by" id="sort_by" data-submit-on-change="#collection-form">
+            <option value="manual" {% if current_sort_by == 'manual' %} selected="selected" {% endif %}>Featured</option>
+            <option value="price-ascending" {% if current_sort_by == 'price-ascending' %} selected="selected" {% endif %}>Price: Low to High</option>
+            <option value="price-descending" {% if current_sort_by == '' %} selected="selected" {% endif %} >Price: High to Low</option>
+            <option value="title-ascending" {% if current_sort_by == 'title-ascending' %} selected="selected" {% endif %} >A-Z</option>
+            <option value="title-descending" {% if current_sort_by == 'title-descending' %} selected="selected" {% endif %} >Z-A</option>
+            <option value="created-ascending" {% if current_sort_by == 'created-ascending' %} selected="selected" {% endif %} >Oldest to Newest</option>
+            <option value="created-descending" {% if current_sort_by == 'created-descending' %} selected="selected" {% endif %} >Newest to Oldest</option>
+        </select>
+        <label for="view">View as...</label>
+        <select name="view" id="view" data-submit-on-change="#collection-form">
+            <option value="grid" {% if collection-view == 'grid' %} selected="selected" {% endif %}>Grid</option>
+            <option value="list" {% if collection-view == 'list' %} selected="selected" {% endif %}>List</option>
+        </select>
+
+        <button type="submit" class="js-hide">Update</button>
+
+        <figure class="horizontal-line-break"></figure>
+
+        <label>Category</label>
+        <ul class=collection--sort-panel-categories>
+            {%- for collection_option in collections -%}
+                <li class="collection--category">
+                    {%- if collection.handle == collection_option.handle -%}
+                        {{ collection_option.title | escape }}
+                    {%- else -%}
+                        <a href="{{ collection_option.url }}?view={{ collection-view }}?sort_by={{ collection.sort_by }}">
+                            {{ collection_option.title | escape }}
+                        </a>
+                    {%- endif -%}
+                </li>
+            {%- endfor -%}
+        </ul>
+
+        <figure class="horizontal-line-break"></figure>
+
+        <label>Filter by...</label>
+        <ul class="collection--sort-panel-filter-tags">
+            {%- for tag in collection.tags -%}
+                <li class="collection--tag">
+                    {%- if current_tags contains tag -%}
+                        {{ '&#9745 ' | append: tag | link_to_remove_tag: tag }}
+                    {%- else -%}
+                        {{ '&#9744 ' | append: tag | link_to_add_tag: tag }}
+                    {%- endif -%}
+                </li>
+            {%- endfor -%}
+        </ul>
+    </aside>
+
+    {% paginate collection.products by 12 %}
+    <section class="collection--products">
+        {%- if collection-view == 'grid' -%}
+            <article class="collection--products-wrapper">
+                {% for product in collection.products %}
+                    {%- include 'product' -%}
+                {% endfor %}
+            </article>
+        {%- else -%}
+            <article class="collection--products-list-wrapper">
+                {% for product in collection.products %}
+                    {%- include 'product-list' -%}
+                {% endfor %}
+            </article>
+        {%- endif -%}
+        
+        <nav class="collection-pagination">
+            {% if paginate.pages > 1 %}
+                {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+            {% endif %}
+        </nav>
+    </section>
+    {% endpaginate %}
+    </form>
+</main>

@@ -25,6 +25,32 @@ $(document).ready(function() {
    asNavFor: '.slick-slider',
    focusOnSelect: true
    });
+
+   // Listeners for Submit on change data field.
+   $(document).on('change', '[data-submit-on-change]', function(){
+      const $select = $(this);
+      const target = $select.attr('data-submit-on-change');
+      $(target).submit();
+   });
+
+   // Add a listener for Ajax load on submit for form elements
+   $(document).on('submit', '[data-submit-load]', function(e) {
+      e.preventDefault();
+      const $form = $(this);
+      const target = $form.attr('data-submit-load');
+      const url = $form.attr('action');
+      console.log(url);
+      const data = $form.serialize();
+      console.log(data);
+      $(target).load(url + ' ' + target, data, function() {
+         window.history.pushState({}, null, url + '?' + data);
+      });
+   });
+
+   // Remove no-js classes from elements if JS is supported
+   $('body').removeClass('no-js');
+
+
   
 
 });
