@@ -1,0 +1,27 @@
+.index--featured-products h2 {
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+
+.index--featured-product-flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-snippet {
+    text-align: center;
+}
+
+@media screen and (min-width: $break-at) {
+    // Index Page Desktop Styles
+    .index--featured-product-flex-wrapper {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .product-snippet, .collection-item {
+        margin: 20px;
+    }
+
+}

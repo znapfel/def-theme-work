@@ -1,0 +1,39 @@
+// Featured Collections
+.index--featured-collections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index--featured-collections h2 {
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+
+.index--featured-collections-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+
+// Index Page Styles 
+.collection-item {
+    text-align: center;
+}
+
+.collection--card-overlay h4::after {
+    padding: 0 10px;
+    content: ">";
+}
+
+@media screen and (min-width: $break-at) {
+    // Index Featured Collection Desktop Style 
+        
+    .index--featured-collections-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;   
+    }
+
+}

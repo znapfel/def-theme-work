@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{ content_for_header }}
+    {{- 'css-variables.css' | asset_url | stylesheet_tag -}}
     {{- 'theme.scss.css' | asset_url | stylesheet_tag -}} 
   </head>
   <body class="no-js">

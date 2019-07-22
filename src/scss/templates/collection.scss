@@ -1,0 +1,120 @@
+// Collection Pages Mobile
+.collection-form {
+    //TODO Make display grid and define areas
+    display: grid;
+    grid-template-areas: 
+        ".  .  . title  .   .   ."
+        ". pro pro pro pro pro  ."
+        ". pro pro pro pro pro  ."
+        ". pro pro pro pro pro  .";
+    
+    
+
+    grid-template-columns: 2em 1fr 1fr 1fr 1fr 1fr 2em;
+}
+.collection h1 {
+    text-align: center;
+    margin: 20px 0;
+    grid-area: title;
+}
+
+.collection--products {
+    grid-area: pro;
+}
+.collection--products-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+
+// Collection pages pagination mobile styles
+.collection-pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.collection-pagination span {
+    padding: 15px 9px;
+}
+
+// Collection Page Sort Panel Mobile styles
+.collection--sort-panel {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+
+}
+
+.collection--sort-panel ul {
+    list-style: none;
+    margin: 0;
+}
+
+.collection--category {
+ padding: 5px 0;
+}
+
+.collection--products-list-wrapper {
+    margin: 2rem;
+    width: 80%;
+}
+
+.product-list-snippet {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.product-list-snippet a {
+    width: 100px;
+}
+
+.product-list-snippet img {
+    width: 100%;
+}
+
+.product-list-snippet div {
+    padding: 0 25px 25px 25px;
+}
+
+.product-list-snippet h6 {
+    margin-left: auto;
+}
+
+@media screen and (min-width: $break-at) {
+    // Collection pages Desktop styling
+    .collection-form {
+
+        grid-template-areas: 
+        ".  .  . title  .   .   ."
+        ". sort pro pro pro pro ."
+        ". sort pro pro pro pro ."
+        ". sort pro pro pro pro .";
+    }
+    .collection h1 {
+        text-align: center;
+        margin: 20px 0;
+        grid-area: title;
+    }
+
+    .collection--products {
+        grid-area: pro;
+    }
+
+    .collection--products-wrapper {
+        flex-flow: row wrap;
+        justify-content: center;
+        
+    }
+
+    // Collection Page Sort Panel Desktop styles
+    .collection--sort-panel {
+        display: flex;
+        position: static;
+        flex-direction: column;
+        padding: 25px;
+        grid-area: sort;
+    }
+}

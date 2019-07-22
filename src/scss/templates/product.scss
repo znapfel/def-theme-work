@@ -1,0 +1,147 @@
+// Product Page Layout
+
+.product-page {
+  padding: 2em 0;
+  display: grid;
+  
+  grid-template-areas: 
+      ". images images ."
+      ". details details ."
+      ". details details ."
+      ". . . ."
+      ". rec rec .";
+      
+  grid-template-columns: 2em minmax(300px, 1.5fr) 1fr 2em;
+}
+
+.horizontal-line-break {
+  height: 1px;
+  background-color: lightgray;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.primary-images {
+grid-area: images;
+width: 100%;
+}
+
+.product--product-details{
+grid-area: details;
+}
+
+.product--related-products {
+  grid-area: rec;
+
+}
+
+.product--related-products {
+  text-align: center;
+  width: 100%;
+}
+.product-recommended-product-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.product--recommended-product {
+  margin: 20px 0;
+}
+
+.product--recommended-product-info {
+  text-align: center;
+}
+.slick-prev {
+position: absolute;
+top: 50%;
+}
+
+.slick-next {
+position: absolute;
+top: 50%;
+left: 92%;
+}
+
+.slick-dots button {
+background-color: transparent;
+border: none;
+}
+
+.product--image-thumbnails .slick-track {
+display: flex;
+justify-content: space-between;
+}
+
+.product--thumbnail-wrapper {
+width: 20%; 
+margin: 5px;
+}
+
+.product--thumbnail-wrapper img {
+width: 100%;
+height: 100%;
+}
+
+.product--product-details form {
+display: flex;
+flex-direction:column;
+width: 100%;
+}
+
+.product--product-details form label {
+margin: 10px 0px;
+}
+
+.product--product-details form select {
+padding: 15px 9px;
+}
+
+.product--product-details form button {
+margin: 20px 0;
+width: 100%;
+padding: 15px 9px;
+}
+
+@media screen and (min-width: $break-at) {
+  // Product Page Layout Desktop
+  .product-page {
+    grid-template-areas: 
+   ". images . details ."
+   ". .      . details ."
+   ". .      . details ."
+   ". .      .    .    ."
+   ". rec    rec  rec  .";
+   
+   grid-template-columns: 2em 600px 2em 1fr 2em;
+ }
+ 
+   .product--product-details form {
+   display: flex;
+   flex-direction:column;
+   width: 50%;
+   }
+
+   .product--product-details form label {
+   margin: 10px 0px;
+   }
+
+   .product--product-details form select {
+   padding: 15px 9px;
+   }
+
+   .product--product-details form button {
+   margin: 20px 0;
+   width: 100%;
+   padding: 15px 9px;
+   }
+
+   .product-recommended-product-wrapper {
+       flex-direction: row;
+       justify-content: center;
+   }
+   .product--recommended-product {
+       margin: 20px;
+   }
+}

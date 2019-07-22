@@ -1,0 +1,70 @@
+  /* Break points */ 
+
+  $break-at: 40rem;
+  /* General Colors */
+  $font-color: var(--font-color);
+  $link-color: var(--link-color);
+  $active-link-color: var(--active-link-color);
+  $sold-out-badge-color: var(--sold-out-badge-color);
+
+  /* Header Colors */
+  $header-text-color: var(--header-text-color);
+  $header-bg-color: var(--header-background-colour);
+  $sticky-header-background-color: var(--sticky-header-background-color);
+  $sticky-header-text-color: var(--sticky-header-text-color);
+  $sticky-header-border-color: var(--sticky-header-border-color);
+
+  /* Footer Colors */ 
+  $footer-background-color: var(--footer-background-color);
+  $footer-text-color: var(--footer-text-color);
+
+  /* Main Menu Colors */ 
+  $main-menu-background-color: var(--main-menu-background-color);
+  $main-menu-text-color: var(--main-menu-text-color);
+  $main-menu-border-color: var(--main-menu-border-color);
+
+  /* Page Colors */
+  $bg_color: var(--bg-color);
+
+  /* Button Colors */
+  $add-to-cart-background-color: var(--add-to-cart-background-color);
+  $add-to-cart-background-hover-color: var(--add-to-cart-background-hover-color);
+  $add-to-cart-text-color: var(--add-to-cart-text-color);
+
+  /* Pop Up Colors */
+  $pop-up-text-background-color: var(--pop-up-text-background-color);
+  $pop-up-text-header-text-color: var(--pop-up-text-header-text-color);
+
+  /* Sales Badge Colors */
+  $sale-label-color: var(--sale-label-color);
+
+
+  /* TYPOGRAPHY */
+  
+  /* Headings */
+  $type_header_font: var(--type_header_font);
+  $title-bar-styling: var(--title-bar-styling);
+  $heading-case: var(--heading-case);
+  $typography-headings-font-size: var(--typography-headings-font-size);
+
+  /* Base Fonts*/
+  $type_base_font: var(--type_base_font);
+  $typography-body-font-size: var(--typography-body-font-size);
+
+  /* Announcement Bar Font Size */
+  $type_announcement_bar_font: var(--type_announcement_bar_font);
+  $typography-announcement-bar-font-size: var(--typography-announcement-bar-font-size);
+  $announcement-bar-font-weight: var(--announcement-bar-font-weight);
+
+  /* Navigation Fonts */
+  $type_navigation_font: var(--type_navigation_font);
+  $typography-menu-font-size: var(--typography-menu-font-size);
+  $menu-case: var(--menu-case);
+  $product-page-font-size: var(--product-page-font-size);
+
+  $add-to-cart-font-size: var(--add-to-cart-font-size);
+  $add-to-cart-text-transform: var(--add-to-cart-text-transform);
+  $header_font_size: var(--header_font_size);
+
+  $pop-up-text-header-text-size: var(--pop-up-text-header-text-size);
+  $pop-up-text-description-text-size: var(--pop-up-text-description-text-size);
