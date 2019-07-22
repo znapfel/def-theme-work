@@ -16,6 +16,7 @@ body {
     margin: 0;
     font-size: 16px;
     display: grid;
+    min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, h6 {
@@ -23,7 +24,7 @@ h1, h2, h3, h4, h5, h6, h6 {
 }
 
 // Basic Form Styling
-form select {
+form select, form input {
     padding: 15px 9px;
 }
 
@@ -474,10 +475,66 @@ left: 75%;
 .product-list-snippet h6 {
     margin-left: auto;
 }
+
+// Cart Mobile Styles
+.cart {
+    margin: 25px 2rem;
+}
+
+.cart h1, .cart .cart--empty {
+    padding: 15px 25px;
+}
+
+.cart--cart-line-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.cart--cart-line-item div {
+    padding: 25px;
+}
+
+.cart--item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart--quantity-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    align-items: center;
+}
+
+.cart--quantity-wrapper input {
+    margin: 0 25px;
+}
+
+.cart--quantity-wrapper h6 {
+    padding: 25px;
+}
+
+.cart--cart-line-item, .cart--info {
+    border-top: 1px solid lightgray;
+}
+
+.cart--info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+//@TODO style upsell area
+
 // Desktop Styles
 @media screen and (min-width: $break-at) {
     
     // Header Desktop Styles
+    header {
+        max-height: 3rem;
+    }
     .header--nav-toggle-label {
         display: none;
     }
@@ -588,7 +645,7 @@ left: 75%;
 
     // Index Page Desktop Styles
     .index--featured-product-flex-wrapper {
-        flex-direction: row;
+        flex-flow: row wrap;
         justify-content: center;
     }
 
@@ -638,6 +695,23 @@ left: 75%;
         grid-area: sort;
     }
 
+    // Cart Desktop Styles
+    .cart--cart-line-item {
+        flex-direction: row;
+    }
+  
     
+    .cart--quantity-wrapper {
+        flex-direction: row;
+        
+    }
+
+    .cart--info {
+        align-items: flex-end;
+        flex-direction: column;
+    }
+
+    
+
 
 }

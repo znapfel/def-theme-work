@@ -1,0 +1,49 @@
+<main class="cart">
+    <h1>Your Cart</h1>
+
+    {%- if cart.items.size > 0 -%}
+    <form id="cart-form" action="/cart" method="post">
+        <section class="cart--cart-wrapper">
+            {%- for item in cart.items -%}
+                <article class="cart--cart-line-item">
+            
+                    <a href="{{ item.url}}">
+                        <img src="{{ item | img_url: '120x120', scale: 2, crop: 'center' }}" width="120" alt="{{ item.title | escape }}"/>
+                    </a>
+                    <div class="cart--item-details">
+                        <h6>{{ item.title | escape }}</h6>
+                        <p>{{ item.sku | escape }}</p>
+                        <a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+                    </div>
+                    <div class="cart--quantity-wrapper">
+                        <input type="number" data-submit-on-change="#cart-form" name="updates[]" value="{{ item.quantity }}" />
+                        <h6>{{ item.price | money }}</h6>
+                    </div>
+                 </article>
+            {%- endfor -%}
+            <div class="cart--info">
+                <p><strong>Total: {{ cart.total_price | money }}</strong></p>
+                <div id="cart-shipping">
+                    <p><em>Shipping and taxes are calculated during checkout.</em></p>
+                </div>
+                <div>
+                    <input class="js-hide"type="submit" name="update" value="Update" />
+                    <input type="submit" name="checkout" value="Proceed To Checkout" />
+                </div>
+            </div>    
+
+        </section>
+    </form>
+    {%- else -%}
+        <p class="cart--empty">Your cart is empty.</p>
+        
+    {%- endif -%}
+</main>
+{%- include 'cart-upsell' -%}
+
+{%- capture captured_js -%}
+    {{- captured_js -}}
+    <script type="text/javascript">
+        fetchShippingRateEstimate('#cart-shipping', {{ customer.default_address | json }} )
+    </script>
+{%- endcapture -%}
