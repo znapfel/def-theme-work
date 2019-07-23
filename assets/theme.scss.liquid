@@ -1,0 +1,1103 @@
+/**
+ * Dev Theme | Built with Slate
+ */
+/* Break points */
+/* General Colors */
+/* Header Colors */
+/* Footer Colors */
+/* Main Menu Colors */
+/* Page Colors */
+/* Button Colors */
+/* Pop Up Colors */
+/* Sales Badge Colors */
+/* TYPOGRAPHY */
+/* Headings */
+/* Base Fonts*/
+/* Announcement Bar Font Size */
+/* Navigation Fonts */
+/**
+ * Sets a media query for the specified breakpoint
+ *
+ * Accepts:
+ * - $media-query: {String} Breakpoint variable (list found in variables.scss)
+ *
+ * Usage:
+ * .selector {
+ *   @include media-query($medium-up) {
+ *     color: red;
+ *   }
+ * }
+ */
+/**
+ * Outputs list of transition properties
+ *
+ * Accepts:
+ * - $transitions: {String} List of transition properties to set
+ *
+ * Usage:
+ * .selector {
+ *   @include transition(width, height 0.5s ease-in);
+ * }
+ */
+/**
+ * Forces an element to self-clear its children
+ *
+ * Usage:
+ * .selector {
+ *   @include clearfix;
+ * }
+ */
+/**
+ * Hide element but make it accessible to screen readers
+ *
+ * Usage:
+ * .selector {
+ *   @include visually-hidden;
+ * }
+ */
+/**
+ * Reverse the properties applied by @mixin visually-hidden
+ *
+ * Accepts:
+ * - $position: {String} Positioning method for element
+ *
+ * Usage:
+ * .selector {
+ *   @include visually-shown(relative);
+ * }
+ */
+/*
+ * Returns the transition properties in the correct format
+ * This function is used by @mixin transition($transitions...)
+ 
+ 
+@function get-transition-properties($transition) {
+  $property: all;
+  $duration: $transition-duration;
+  $easing: $transition-timing;
+  $delay: null;
+
+  $defaultProperties: (
+    $property,
+    $duration,
+    $easing,
+    $delay
+  );
+
+  $properties: ();
+
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+
+    @if $i <= length($transition) {
+      $p: nth($transition, $i);
+    } @else {
+      $p: nth($defaultProperties, $i);
+    }
+
+    $properties: append($properties, $p);
+  }
+
+  @return $properties;
+}
+*/
+form {
+  margin: 0; }
+
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation; }
+
+/*
+input,
+textarea,
+select {
+  font-size: 1.6rem;
+  max-width: 100%;
+  border: 1px solid $color-border;
+  border-radius: 0;
+
+  &[disabled] {
+    border-color: $color-disabled-border;
+    background-color: $color-disabled;
+    cursor: default;
+  }
+}*/
+button,
+input[type='submit'],
+label[for] {
+  cursor: pointer; }
+
+/*
+textarea {
+  min-height: 100px;
+}*/
+select::-ms-expand {
+  display: none; }
+
+/*option {
+  background-color: $color-body;
+  color: $color-body-text;
+}
+
+.input-error {
+  border-color: $color-error;
+  background-color: $color-error-bg;
+  color: $color-body-text;
+}
+*/
+form select, form input {
+  padding: 15px 9px; }
+
+form label {
+  margin: 10px 0px; }
+
+form button {
+  margin: 20px 0;
+  width: 100%;
+  padding: 15px 9px; }
+
+/* .clearfix {
+  @include clearfix;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.js-focus-hidden:focus {
+  outline: none;
+}
+
+.label-hidden {
+  @include visually-hidden;
+
+  // No placeholders, so force show labels
+  .no-placeholder & {
+    @include visually-shown;
+  }
+}
+
+.visually-shown {
+  @include visually-shown;
+}*/
+.js-hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
+
+.no-js .js-hide {
+  position: static; }
+
+.supports-no-cookies:not(html) {
+  display: none; }
+  html.supports-no-cookies .supports-no-cookies:not(html) {
+    display: block; }
+
+html.supports-no-cookies .supports-cookies {
+  display: none; }
+
+.skip-link:focus {
+  z-index: 10000;
+  padding: 2rem / 2;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  transition: none; }
+
+.hide {
+  /* stylelint-disable declaration-no-important */
+  display: none !important; }
+
+html {
+  color: var(--bg-color);
+  height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--baseFontStack);
+  font-size: 16px;
+  display: grid;
+  min-height: 100%; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/*
+figure {
+  margin: 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+*/
+/* @include media-query($small) {
+  .responsive-table {
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+    }
+
+    // IE9 table layout fixes
+    tr,
+    td {
+      float: left;
+      clear: both;
+      width: 100%;
+    }
+
+    th,
+    td {
+      display: block;
+      margin: 0;
+      padding: $grid-gutter / 2;
+      text-align: right;
+    }
+
+    td::before {
+      content: attr(data-label);
+      float: left;
+      padding-right: 10px;
+      text-align: center;
+    }
+  }
+
+  // Add a keyline between rows
+  .responsive-table-row + .responsive-table-row,
+  tfoot > .responsive-table-row:first-child {
+    position: relative;
+    margin-top: 10px;
+    padding-top: $grid-gutter / 2;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: $grid-gutter / 2;
+      left: $grid-gutter / 2;
+      display: block;
+      border-bottom: 1px solid $color-border;
+    }
+  }
+}
+*/
+/*
+.rte {
+  margin: 0;
+
+  img {
+    height: auto;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 ($grid-gutter / 2) $grid-gutter;
+  }
+
+  strong {
+    font-weight: $font-body-bold-weight;
+  }
+}
+
+// Allow table to scroll for tables in the RTE since we don't know
+// how many columns they will contain. Class added by JS.
+.rte-table {
+  overflow: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+// This class is wrapped around YouTube/Vimeo embeds in the RTE
+// to make them responsive and prevent layout breaking
+.rte__video-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: 0;
+  height: auto;
+  padding-bottom: 56.25%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// This class is wrapped around tables in the RTE
+// to prevent layout breaking with a scrollable parent
+.rte__table-wrapper {
+  overflow: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+*/
+html {
+  font-size: 16px; }
+
+body {
+  font-family: var(--baseFontStack);
+  font-size: 16px; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--type_header_font);
+  text-transform: var(--heading-case);
+  margin: 0; }
+
+body,
+input,
+textarea,
+button,
+select {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%; }
+
+a:focus {
+  color: inherit; }
+
+/*.button {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  border: 0;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+}
+*/
+/*.hero-banner {
+  background-repeat: no-repeat;
+}
+
+.hero-banner--article {
+  min-height: 278px;
+  background-position: center;
+  background-size: cover;
+}
+*/
+/*.icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+
+  .no-svg & {
+    display: none;
+  }
+}
+
+.icon--wide {
+  width: 40px;
+}
+
+svg,
+symbol {
+  &.icon:not(.icon--full-color) {
+    circle,
+    ellipse,
+    g,
+    line,
+    path,
+    polygon,
+    polyline,
+    img {
+      max-width: 100%;
+    }
+
+    rect {
+      fill: inherit;
+      stroke: inherit;
+    }
+  }
+}
+
+// A generic way to visually hide content while
+// remaining accessible to screen readers (h5bp.com)
+.icon-fallback-text {
+  @include visually-hidden;
+
+  .no-svg & {
+    @include visually-shown(static);
+  }
+}
+
+// Payment icons
+.payment-icons {
+  user-select: none;
+  cursor: default;
+}
+*/
+/*
+.placeholder-svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border: 1px solid $placeholder-color-foreground;
+  background-color: $placeholder-color-background;
+  fill: $placeholder-color-foreground;
+}
+
+.placeholder-svg--small {
+  width: 480px;
+}
+
+.placeholder-noblocks {
+  padding: 40px;
+  text-align: center;
+}
+
+// Mimic a background image by wrapping the placeholder svg with this class
+.placeholder-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .icon {
+    border: 0;
+  }
+}
+*/
+/*.responsive-image__wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+
+  .no-js & {
+    display: none;
+  }
+
+  &::before {
+    content: '';
+    position: relative;
+    display: block;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.responsive-image__wrapper--full-height {
+  height: 100%;
+}
+
+.responsive-image__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  &:focus {
+    outline-offset: -4px;
+  }
+}
+*/
+/*.address-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  [data-aria-hidden="true"] {
+    display: none;
+  }
+
+  [data-line-count="1"] {
+    flex-basis: 100%;
+  }
+  [data-line-count="2"] {
+    flex-basis: 49%;
+  }
+  [data-line-count="3"] {
+    flex-basis: 32%;
+  }
+}
+*/
+header {
+  background: var(--header-background-color);
+  color: var(--header-text-color);
+  text-align: center;
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  padding-bottom: 3rem; }
+
+.header--nav-toggle {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
+
+.header--nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center; }
+
+.header--nav-toggle-label span,
+.header--nav-toggle-label span::before,
+.header--nav-toggle-label span::after {
+  display: block;
+  background: black;
+  height: 2px;
+  width: 2em;
+  border-radius: 5px;
+  position: relative; }
+
+.header--nav-toggle-label span::before,
+.header--nav-toggle-label span::after {
+  content: '';
+  position: absolute; }
+
+.header--nav-toggle-label span::before {
+  bottom: 7px; }
+
+.header--nav-toggle-label span::after {
+  top: 7px; }
+
+header nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--header-background-color);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in; }
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+header nav li {
+  margin-bottom: 1em;
+  margin-left: 1em; }
+
+header nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out; }
+
+header nav a:hover {
+  color: white; }
+
+.header--dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  transform: scale(1, 1);
+  transform-origin: top left;
+  transition: transform 250ms ease-in; }
+
+.header--dropdown-hidden {
+  transform: scale(1, 0);
+  transform-origin: top left;
+  transition: transform 250ms ease-in; }
+
+.dropdown-toggle::after {
+  justify-content: flex-end;
+  content: "+"; }
+
+.header--dropdown-item {
+  padding: 1em;
+  margin-left: 0.5em;
+  opacity: 1;
+  transform: opacity 250ms ease-in; }
+
+.header--nav-toggle:checked ~ nav {
+  transform: scale(1, 1); }
+
+.header--nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms; }
+
+@media screen and (min-width: 40rem) {
+  header {
+    max-height: 3rem; }
+  .header--nav-toggle-label {
+    display: none; }
+  header .shopify-section {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; }
+  .logo {
+    grid-column: 2 / 3; }
+  header nav {
+    grid-column: 3 / 4;
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1, 1);
+    background: none;
+    top: initial;
+    left: initial;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  header nav ul {
+    display: flex; }
+  header nav li {
+    margin-left: 1.5em;
+    margin-bottom: 0; }
+  header nav a {
+    opacity: 1;
+    position: relative; }
+  header nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -0.5em;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 5px;
+    border-radius: 8px;
+    background: white;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms; }
+  header nav a:hover::before {
+    transform: scale(1, 1); }
+  .header--dropdown-menu {
+    position: absolute;
+    background-color: var(--header-background-color);
+    padding: 1em;
+    margin-left: 0; } }
+
+/*
+.blog-post {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-post__item {
+  flex: 1 1 percentage(1 / 3);
+}
+*/
+/*.collection-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $grid-max-width;
+}
+
+.collection-list-item {
+  flex: 1 1 percentage(1 / 3);
+  height: 100%;
+  text-align: center;
+}
+
+.collection-list__image {
+  min-width: 320px;
+}
+
+.collection-list__title {
+  flex-basis: 100%;
+}
+*/
+.index--featured-collections {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.index--featured-collections h2 {
+  text-align: center;
+  padding: 10px 0 20px 0; }
+
+.index--featured-collections-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.collection-item {
+  text-align: center; }
+
+.collection--card-overlay h4::after {
+  padding: 0 10px;
+  content: ">"; }
+
+@media screen and (min-width: 40rem) {
+  .index--featured-collections-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center; } }
+
+.image-with-text {
+  display: flex;
+  flex-wrap: wrap; }
+
+.image-with-text__image {
+  flex: 0 1 50%;
+  min-width: 320px; }
+
+.image-with-text__text {
+  flex: 1 1 50%; }
+
+.cart {
+  margin: 25px 2rem; }
+
+.cart h1, .cart .cart--empty {
+  padding: 15px 25px; }
+
+.cart--cart-line-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px; }
+
+.cart--cart-line-item div {
+  padding: 25px; }
+
+.cart--item-details {
+  display: flex;
+  flex-direction: column; }
+
+.cart--quantity-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  align-items: center; }
+
+.cart--quantity-wrapper input {
+  margin: 0 25px; }
+
+.cart--quantity-wrapper h6 {
+  padding: 25px; }
+
+.cart--cart-line-item, .cart--info {
+  border-top: 1px solid lightgray; }
+
+.cart--info {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+@media screen and (min-width: 40rem) {
+  .cart--cart-line-item {
+    flex-direction: row; }
+  .cart--quantity-wrapper {
+    flex-direction: row; }
+  .cart--info {
+    align-items: flex-end;
+    flex-direction: column; } }
+
+.index--featured-products h2 {
+  text-align: center;
+  padding: 10px 0 20px 0; }
+
+.index--featured-product-flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.product-snippet {
+  text-align: center; }
+
+@media screen and (min-width: 40rem) {
+  .index--featured-product-flex-wrapper {
+    flex-flow: row wrap;
+    justify-content: center; }
+  .product-snippet, .collection-item {
+    margin: 20px; } }
+
+#shopify-section-footer {
+  margin-top: auto; }
+
+footer {
+  background-color: var(--footer-background-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.footer--link-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.footer--link-list h3, .footer--link-list nav {
+  text-transform: uppercase; }
+
+.footer--link-list h3 {
+  font-size: 1.2rem; }
+
+footer nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem; }
+
+.footer--navigation {
+  display: flex;
+  flex-direction: column; }
+
+.footer--navigation a {
+  margin: 0.5em 0; }
+
+.index--hero-wrapper {
+  width: 100%;
+  position: relative;
+  height: auto; }
+
+.index--hero-wrapper a {
+  width: 100%; }
+
+.index--hero-wrapper a img {
+  width: 100%;
+  height: 100%;
+  display: block; }
+
+.index--hero-title-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 75%; }
+
+/*
+.giftcard-qr {
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.apple-wallet-image {
+  display: block;
+  margin: 0 auto;
+}
+
+@media print {
+  @page {
+    margin: 0.5cm;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .print-giftcard,
+  .apple-wallet {
+    display: none;
+  }
+}
+*/
+.product-page {
+  padding: 2em 0;
+  display: grid;
+  grid-template-areas: ". images images ." ". details details ." ". details details ." ". . . ." ". rec rec .";
+  grid-template-columns: 2em minmax(300px, 1.5fr) 1fr 2em; }
+
+.horizontal-line-break {
+  height: 1px;
+  background-color: lightgray;
+  width: 100%;
+  margin: 25px 0; }
+
+.primary-images {
+  grid-area: images;
+  width: 100%; }
+
+.product--product-details {
+  grid-area: details; }
+
+.product--related-products {
+  grid-area: rec; }
+
+.product--related-products {
+  text-align: center;
+  width: 100%; }
+
+.product-recommended-product-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+
+.product--recommended-product {
+  margin: 20px 0; }
+
+.product--recommended-product-info {
+  text-align: center; }
+
+.slick-prev {
+  position: absolute;
+  top: 50%; }
+
+.slick-next {
+  position: absolute;
+  top: 50%;
+  left: 92%; }
+
+.slick-dots button {
+  background-color: transparent;
+  border: none; }
+
+.product--image-thumbnails .slick-track {
+  display: flex;
+  justify-content: space-between; }
+
+.product--thumbnail-wrapper {
+  width: 20%;
+  margin: 5px; }
+
+.product--thumbnail-wrapper img {
+  width: 100%;
+  height: 100%; }
+
+.product--product-details form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; }
+
+.product--product-details form label {
+  margin: 10px 0px; }
+
+.product--product-details form select {
+  padding: 15px 9px; }
+
+.product--product-details form button {
+  margin: 20px 0;
+  width: 100%;
+  padding: 15px 9px; }
+
+@media screen and (min-width: 40rem) {
+  .product-page {
+    grid-template-areas: ". images . details ." ". .      . details ." ". .      . details ." ". .      .    .    ." ". rec    rec  rec  .";
+    grid-template-columns: 2em 600px 2em 1fr 2em; }
+  .product--product-details form {
+    display: flex;
+    flex-direction: column;
+    width: 50%; }
+  .product--product-details form label {
+    margin: 10px 0px; }
+  .product--product-details form select {
+    padding: 15px 9px; }
+  .product--product-details form button {
+    margin: 20px 0;
+    width: 100%;
+    padding: 15px 9px; }
+  .product-recommended-product-wrapper {
+    flex-direction: row;
+    justify-content: center; }
+  .product--recommended-product {
+    margin: 20px; } }
+
+.collection-form {
+  display: grid;
+  grid-template-areas: ".  .  . title  .   .   ." ". pro pro pro pro pro  ." ". pro pro pro pro pro  ." ". pro pro pro pro pro  .";
+  grid-template-columns: 2em 1fr 1fr 1fr 1fr 1fr 2em; }
+
+.collection h1 {
+  text-align: center;
+  margin: 20px 0;
+  grid-area: title; }
+
+.collection--products {
+  grid-area: pro; }
+
+.collection--products-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+
+.collection-pagination {
+  display: flex;
+  justify-content: center; }
+
+.collection-pagination span {
+  padding: 15px 9px; }
+
+.collection--sort-panel {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
+
+.collection--sort-panel ul {
+  list-style: none;
+  margin: 0; }
+
+.collection--category {
+  padding: 5px 0; }
+
+.collection--products-list-wrapper {
+  margin: 2rem;
+  width: 80%; }
+
+.product-list-snippet {
+  display: flex;
+  flex-direction: row;
+  width: 100%; }
+
+.product-list-snippet a {
+  width: 100px; }
+
+.product-list-snippet img {
+  width: 100%; }
+
+.product-list-snippet div {
+  padding: 0 25px 25px 25px; }
+
+.product-list-snippet h6 {
+  margin-left: auto; }
+
+@media screen and (min-width: 40rem) {
+  .collection-form {
+    grid-template-areas: ".  .  . title  .   .   ." ". sort pro pro pro pro ." ". sort pro pro pro pro ." ". sort pro pro pro pro ."; }
+  .collection h1 {
+    text-align: center;
+    margin: 20px 0;
+    grid-area: title; }
+  .collection--products {
+    grid-area: pro; }
+  .collection--products-wrapper {
+    flex-flow: row wrap;
+    justify-content: center; }
+  .collection--sort-panel {
+    display: flex;
+    position: static;
+    flex-direction: column;
+    padding: 25px;
+    grid-area: sort; } }

@@ -1,5 +1,5 @@
 header {
-    background: $header-bg-color;
+    background: $header-background-color;
     color: $header-text-color;
     text-align: center;
     //Make position and z-index change based on theme settings
@@ -57,7 +57,7 @@ header nav {
     text-align: left;
     top: 100%;
     left: 0;
-    background: $background-color;
+    background: $header-background-color;
     width: 100%;
     transform: scale(1, 0);
     transform-origin: top;
@@ -192,7 +192,7 @@ header nav a:hover {
 
     .header--dropdown-menu {
         position: absolute;
-        background-color: $background-color;
+        background-color: $header-background-color;
         padding: 1em;
         margin-left: 0;
     }

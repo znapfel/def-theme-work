@@ -30,11 +30,20 @@
 @import './components/address-forms';
 
 // Sections
+@import './sections/header';
 @import './sections/blog-posts';
 @import './sections/collection-list';
 @import './sections/featured-collections';
 @import './sections/image-with-text';
+@import './sections/cart';
+@import './sections/featured-products';
+@import './sections/footer';
+@import './sections/hero';
+
+
 
 // Templates
 @import './templates/gift_card';
 @import './templates/product';
+@import './templates/collection';
+

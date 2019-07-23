@@ -1,3 +1,6 @@
+{% assign base_font = settings.type_base_font %}
+{{ base_font | font_face }}
+
 
 :root {
     /* General Colors */
@@ -8,7 +11,7 @@
 
     /* Header Colors */
     --header-text-color: {{ settings.header-text-color }};
-    --header-bg-color: {{ settings.header-background-colour }};
+    --header-background-color: {{ settings.header-background-color }};
     --sticky-header-background-color: {{ settings.sticky-header-background-color }};
     --sticky-header-text-color: {{ settings.sticky-header-text-color }};
     --sticky-header-border-color: {{ settings.sticky-header-border-color }};
@@ -41,22 +44,24 @@
     /* TYPOGRAPHY */
     
     /* Headings */
-    --type_header_font: {{ settings.type_header_font }};
+    --type_header_font: {{ settings.type_header_font | font_face  }};
     --title-bar-styling: {{ settings.title-bar-styling }};
     --heading-case: {{ settings.heading-case }};
     --typography-headings-font-size: {{ settings.typography-headings-font-size }};
 
     /* Base Fonts*/
-    --type_base_font: {{ settings.type_base_font }};
+    --baseFontStack: {{ base_font.family }};
+
     --typography-body-font-size: {{ settings.typography-body-font-size }};
 
+    
     /* Announcement Bar Font Size */
-    --type_announcement_bar_font: {{ settings.type_announcement_bar_font }};
+    --type_announcement_bar_font: {{ settings.type_announcement_bar_font | font_face }};
     --typography-announcement-bar-font-size: {{ settings.typography-announcement-bar-font-size }};
     --announcement-bar-font-weight: {{ settings.announcement-bar-font-weight }};
 
     /* Navigation Fonts */
-    --type_navigation_font: {{ settings.type_navigation_font }};
+    --type_navigation_font: {{ settings.type_navigation_font | font_face  }};
     --typography-menu-font-size: {{ settings.typography-menu-font-size }};
     --menu-case: {{ settings.menu-case }};
     --product-page-font-size: {{ settings.product-page-font-size }};
