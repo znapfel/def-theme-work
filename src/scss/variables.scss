@@ -42,23 +42,22 @@
   /* TYPOGRAPHY */
   
   /* Headings */
-  $type_header_font: var(--type_header_font);
+  $headingFontStack: var(--headingFontStack);
   $title-bar-styling: var(--title-bar-styling);
   $heading-case: var(--heading-case);
   $typography-headings-font-size: var(--typography-headings-font-size);
 
   /* Base Fonts*/
-  $type_base_font: var(--type_base_font);
-  $typography-body-font-size: var(--typography-body-font-size);
-
   $baseFontStack: var(--baseFontStack);
+  $typography-body-font-size: var(--typography-body-font-size);
+  
   /* Announcement Bar Font Size */
-  $type_announcement_bar_font: var(--type_announcement_bar_font);
+  $announcementFontStack: var(-announcementFontStack);
   $typography-announcement-bar-font-size: var(--typography-announcement-bar-font-size);
   $announcement-bar-font-weight: var(--announcement-bar-font-weight);
 
   /* Navigation Fonts */
-  $type_navigation_font: var(--type_navigation_font);
+  $navigationFontStack: var(--navigationFontStack);
   $typography-menu-font-size: var(--typography-menu-font-size);
   $menu-case: var(--menu-case);
   $product-page-font-size: var(--product-page-font-size);

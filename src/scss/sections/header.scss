@@ -53,6 +53,7 @@ header {
 }
 
 header nav {
+    font-family: $navigationFontStack;
     position: absolute;
     text-align: left;
     top: 100%;

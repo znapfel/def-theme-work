@@ -1,6 +1,17 @@
 {% assign base_font = settings.type_base_font %}
 {{ base_font | font_face }}
 
+{% assign heading_font = settings.type_header_font  %}
+{{ heading_font | font_face }}
+
+{% assign announcement_font = settings.type_announcement_bar_font %}
+{{ announcement_font | font_face }}
+
+{% assign navigation_font = settings.type_navigation_font  %}
+{{ navigation_font| font_face }}
+
+
+
 
 :root {
     /* General Colors */
@@ -44,24 +55,24 @@
     /* TYPOGRAPHY */
     
     /* Headings */
-    --type_header_font: {{ settings.type_header_font | font_face  }};
+    --headingFontStack: {{ heading_font.family }}, {{ heading_font.fallback_families }};
     --title-bar-styling: {{ settings.title-bar-styling }};
     --heading-case: {{ settings.heading-case }};
     --typography-headings-font-size: {{ settings.typography-headings-font-size }};
 
     /* Base Fonts*/
-    --baseFontStack: {{ base_font.family }};
+    --baseFontStack: {{ base_font.family }}, {{ base_font.fallback_families }};
 
     --typography-body-font-size: {{ settings.typography-body-font-size }};
 
     
     /* Announcement Bar Font Size */
-    --type_announcement_bar_font: {{ settings.type_announcement_bar_font | font_face }};
+    --announcementFontStack: {{ announcement_font.family }}, {{ announcement_font.fallback_families }};
     --typography-announcement-bar-font-size: {{ settings.typography-announcement-bar-font-size }};
     --announcement-bar-font-weight: {{ settings.announcement-bar-font-weight }};
 
     /* Navigation Fonts */
-    --type_navigation_font: {{ settings.type_navigation_font | font_face  }};
+    --navigationFontStack: {{ navigation_font.family }}, {{ navigation_font.fallback_families }};
     --typography-menu-font-size: {{ settings.typography-menu-font-size }};
     --menu-case: {{ settings.menu-case }};
     --product-page-font-size: {{ settings.product-page-font-size }};
