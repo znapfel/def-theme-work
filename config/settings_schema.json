@@ -273,32 +273,6 @@
         },
         {
           "type": "header",
-          "content": "Announcement bar"
-        },
-        {
-          "type": "font_picker",
-          "id": "type_announcement_bar_font",
-          "label": "Font",
-          "default": "work_sans_n4"
-        },
-        {
-          "type": "range",
-          "id": "typography-announcement-bar-font-size",
-          "min": 10,
-          "max": 18,
-          "step": 1,
-          "unit": "px",
-          "label": "Base size",
-          "default": 12
-        },
-        {
-          "type": "checkbox",
-          "id": "announcement-bar-font-weight",
-          "label": "Bold text",
-          "default": false
-        },
-        {
-          "type": "header",
           "content": "Navigation"
         },
         {
@@ -384,44 +358,6 @@
           ],
           "default": "none"
         },
-        {
-          "type": "header",
-          "content": "Site title"
-        },
-        {
-          "type": "range",
-          "id": "header_font_size",
-          "min": 10,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "label": "Size",
-          "default": 24
-        },
-        {
-          "type": "header",
-          "content": "Popup"
-        },
-        {
-          "type": "range",
-          "id": "pop-up-text-header-text-size",
-          "min": 10,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "label": "Heading size",
-          "default": 36
-        },
-        {
-          "type": "range",
-          "id": "pop-up-text-description-text-size",
-          "min": 10,
-          "max": 32,
-          "step": 2,
-          "unit": "px",
-          "label": "Text size",
-          "default": 16
-        }
       ]
     },
     {

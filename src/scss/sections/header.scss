@@ -6,7 +6,6 @@ header {
     position: relative;
     z-index: 999;
     width: 100%;
-    padding-bottom: 3rem;
 }
 
 // Mobile Header Styles
@@ -127,9 +126,7 @@ header nav a:hover {
 
 @media screen and (min-width: $break-at) {
     // Header Desktop Styles
-    header {
-        max-height: 3rem;
-    }
+    
     .header--nav-toggle-label {
         display: none;
     }

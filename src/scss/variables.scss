@@ -40,7 +40,7 @@
 
 
   /* TYPOGRAPHY */
-  
+
   /* Headings */
   $headingFontStack: var(--headingFontStack);
   $title-bar-styling: var(--title-bar-styling);
@@ -51,11 +51,6 @@
   $baseFontStack: var(--baseFontStack);
   $typography-body-font-size: var(--typography-body-font-size);
   
-  /* Announcement Bar Font Size */
-  $announcementFontStack: var(-announcementFontStack);
-  $typography-announcement-bar-font-size: var(--typography-announcement-bar-font-size);
-  $announcement-bar-font-weight: var(--announcement-bar-font-weight);
-
   /* Navigation Fonts */
   $navigationFontStack: var(--navigationFontStack);
   $typography-menu-font-size: var(--typography-menu-font-size);
@@ -64,7 +59,5 @@
 
   $add-to-cart-font-size: var(--add-to-cart-font-size);
   $add-to-cart-text-transform: var(--add-to-cart-text-transform);
-  $header_font_size: var(--header_font_size);
 
-  $pop-up-text-header-text-size: var(--pop-up-text-header-text-size);
-  $pop-up-text-description-text-size: var(--pop-up-text-description-text-size);
+

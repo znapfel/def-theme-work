@@ -13,7 +13,6 @@
 /* TYPOGRAPHY */
 /* Headings */
 /* Base Fonts*/
-/* Announcement Bar Font Size */
 /* Navigation Fonts */
 /**
  * Sets a media query for the specified breakpoint
@@ -222,7 +221,6 @@ html {
 body {
   margin: 0;
   font-family: var(--baseFontStack);
-  font-size: 16px;
   display: grid;
   min-height: 100%; }
 
@@ -358,8 +356,7 @@ html {
   font-size: 16px; }
 
 body {
-  font-family: var(--baseFontStack);
-  font-size: 16px; }
+  font-family: var(--baseFontStack); }
 
 h1,
 h2,
@@ -370,6 +367,21 @@ h6 {
   font-family: var(--headingFontStack);
   text-transform: var(--heading-case);
   margin: 0; }
+
+h1 {
+  font-size: 3.052rem; }
+
+h2 {
+  font-size: 2.441rem; }
+
+h3 {
+  font-size: 1.953rem; }
+
+h4 {
+  font-size: 1.563rem; }
+
+h5 {
+  font-size: 1.25rem; }
 
 body,
 input,
@@ -639,8 +651,7 @@ header {
   text-align: center;
   position: relative;
   z-index: 999;
-  width: 100%;
-  padding-bottom: 3rem; }
+  width: 100%; }
 
 .header--nav-toggle {
   position: absolute;
@@ -738,8 +749,6 @@ header nav a:hover {
   transition: opacity 250ms ease-in-out 250ms; }
 
 @media screen and (min-width: 40rem) {
-  header {
-    max-height: 3rem; }
   .header--nav-toggle-label {
     display: none; }
   header .shopify-section {

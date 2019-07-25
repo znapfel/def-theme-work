@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const browserSync = require('browser-sync').create();
 const replace = require('gulp-replace');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
@@ -23,4 +22,9 @@ function compileLiquid() {
 
 }
 
+function watch() {
+    gulp.watch('./src/scss/**/*.scss', compileLiquid);
+}
+
 exports.style = compileLiquid;
+exports.watch = watch;
